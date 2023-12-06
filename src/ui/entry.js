@@ -1,16 +1,19 @@
 import Link from "next/link";
+import moment from "moment";
+import 'moment/locale/es';
+moment.locale('es')
 
 export default function Entry({entry}) {
     return (
         <div className="lg:flex">
-            <img className="object-cover w-10 h-5 rounded" src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" />
+            <img className="object-contain w-full h-56 rounded-lg lg:w-64" src={entry.images[0]?.url} alt="" />
 
                 <div className="flex flex-col justify-between py-6 lg:mx-6">
                     <Link href={`/entry/${entry._id}`} className="text-xl font-semibold text-gray-800 hover:underline">
                         {entry.title}
                     </Link>
 
-                    <span className="text-sm text-gray-500">On: 20 October 2019</span>
+                    <span className="text-sm text-gray-500 capitalize">{`${moment(entry.date1).format('MMMM d, YYYY')} - ${moment(entry.date3).format('MMMM d, YYYY')}`}</span>
                 </div>
         </div>
     )

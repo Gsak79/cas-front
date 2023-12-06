@@ -1,11 +1,16 @@
-export default function UploadedImage({image}) {
+export default function UploadedImage({image, index, deleteImage}) {
+
+    function handleDeleteImage() {
+        deleteImage(index)
+    }
+
     return (
         <div className="rounded-md bg-[#F5F7FB] py-4 px-8">
             <div className="flex items-center justify-between">
-            <span className="truncate pr-3 text-base font-medium text-[#07074D]">
-              {image.name}
-            </span>
-                <button className="text-[#07074D]">
+                <span className="truncate pr-3 text-base font-medium text-[#07074D] w-full">
+                {image.name}
+                </span>
+                <button type="button" className="text-[#07074D]" onClick={handleDeleteImage}>
                     <svg
                         width="10"
                         height="10"
