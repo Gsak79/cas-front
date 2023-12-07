@@ -6,7 +6,7 @@ moment.locale('es')
 export default function Entry({entry}) {
     return (
         <div className="lg:flex">
-            <img className="object-contain w-full h-56 rounded-lg lg:w-64" src={entry.images[0]?.url} alt="" />
+            <img className="object-fill w-full h-56 rounded-lg lg:w-64" src={entry.images[0]?.url} alt="" />
 
                 <div className="flex flex-col justify-between py-6 lg:mx-6">
                     <Link href={`/entry/${entry._id}`} className="text-xl font-semibold text-gray-800 hover:underline">
