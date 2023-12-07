@@ -31,7 +31,7 @@ export async function editEntry(id, entry) {
 }
 
 export async function getEntryById(id) {
-    const res = await fetch(`${process.env.API_URL}/entry/${id}`)
+    const res = await fetch(`${process.env.API_URL}/entry/${id}`, {cache:"no-store"})
     return res.json()
 }
 
